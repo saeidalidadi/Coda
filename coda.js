@@ -3,34 +3,41 @@
  * Email : alidadisaeid@gmail.com
  * Date  : 26-Dec-2015
 */ 
-var coda = {}
-// options for coda object
-//the element for dancing
-coda.element = 'body';
+function Coda(element) {
+	// options for coda object
+	//the element for dancing
+	this.element = 'body';
 
-//Duration in ms for dancing
-coda.duration = 10;
+	//Duration in ms for dancing
+	this.duration = 10;
 
-//The range of for dancing;
-coda.colorRange = {
-	min: 0,
-	Max: 255
+	//The range of for dancing;
+	this.colorRange = {
+		min: 0,
+		Max: 255
+	}
+	//The step that a color(R,G,B) chages in that range
+	this.colorStep = 1;
+	 
+	//Time step that a color(R,G,B) changes in that duration
+	this.timeStep = 10;
+
+	// Defines that the changing action will step down after getting to its Maximum value
+	this.rollBack = true;
+
 }
-//The step that a color(R,G,B) chages in that range
-coda.colorStep = 1;
- 
-//Time step that a color(R,G,B) changes in that duration
-coda.timeStep = 10;
 
-// Defines that the changing action will step down after getting to its Maximum value
-coda.rollBack = true;
-
-//Coda methods:
+/* Coda methods */
 //The color of that element will dance with calling this method
-coda.dance = function() {
+Coda.prototype.dance = function() {
 	
 }
 
-coda.stop = function() {
+//This mwthod stop dancing of selected element
+Coda.prototype.stop = function() {
 	
+}
+
+var coda = function(element){
+	return new Coda(element);
 }
