@@ -2,5 +2,4 @@
 var option = {};
 
 //selecting body element and calling dancing method for it
-coda('body').dance();
-
+coda('body').dance(option);
