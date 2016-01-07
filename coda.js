@@ -3,46 +3,6 @@
  * Email : alidadisaeid@gmail.com
  * Date  : 26-Dec-2015
 */ 
-<<<<<<< HEAD
-function Coda(element) {
-	// options for coda object
-	//the element for dancing
-	this.element = 'body';
-
-	//Duration in ms for dancing
-	this.duration = 10;
-
-	//The range of for dancing;
-	this.colorRange = {
-		min: 0,
-		Max: 255
-	}
-	//The step that a color(R,G,B) chages in that range
-	this.colorStep = 1;
-	 
-	//Time step that a color(R,G,B) changes in that duration
-	this.timeStep = 10;
-
-	// Defines that the changing action will step down after getting to its Maximum value
-	this.rollBack = true;
-
-}
-
-/* Coda methods */
-//The color of that element will dance with calling this method
-Coda.prototype.dance = function() {
-	
-}
-
-//This mwthod stop dancing of selected element
-Coda.prototype.stop = function() {
-	
-}
-
-var coda = function(element){
-	return new Coda(element);
-}
-=======
 +function(){
 
 	window.Coda = function() {
@@ -82,4 +42,3 @@ var coda = function(element){
 	}
 	var coda = new Coda();
 }();
->>>>>>> constructor-way
