@@ -6,13 +6,156 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <script src="js/bootstrap.min.js" type="text/javascript"></script>
   <script src="../coda.js" type="text/javascript"></script>
+<<<<<<< HEAD
+=======
+  <script src="js/script.js" type="text/javascript"></script>
+>>>>>>> constructor-way
 </head>
 <body>
   <div class="container-fluid">
   	<div class="row">
+<<<<<<< HEAD
   	  <div class="col-"></div>
   	</div>
   </div>
   <script src="js/script.js" type="text/javascript"></script>
+=======
+      <div class="col-md-5 col-sm-6 col-xs-6">
+        <!-- Common options -->
+    	  <div class="row">
+          <label for="all-range-min">Range of colors</label>
+          <div class="input-group">
+          <span class="input-group-addon" id="basic-addon3">min:</span>
+          <input type="number" class="form-control" id="all-range-min" aria-describedby="basic-addon3">
+          </div>
+          <div class="input-group">
+          <span class="input-group-addon" id="basic-addon3">Max:</span>
+          <input type="number" class="form-control" id="all-range-max" aria-describedby="basic-addon3">
+          </div>
+        </div>
+        <!-- End, Common options -->
+
+        <!-- Colors specific options -->
+    	  <div class="row">
+          <!-- Red options -->
+          <div id="red-options" class="col-md-4 color-section">
+            <!-- Duration --> 
+            <div id="opt-duration" class="">
+              <lable for="duration-val">Duration</lable>
+              <div class="input-group">
+                <input type="number" id="duration-val" class="form-control"/>
+                <span class="input-group-addon" id="basic-addon2">ms</span>
+              </div>
+            </div>
+            <!-- Color range -->
+            <div id="red-opt-range" class="">
+        	    <label for="red-range-min">Range of color</label>
+              <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">min:</span>
+              <input type="number" class="form-control" id="red-range-min" aria-describedby="basic-addon3">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Max:</span>
+                <input type="number" class="form-control" id="red-range-max" aria-describedby="basic-addon3">
+              </div>
+            </div>
+            <!-- Time step -->
+            <div id="red-opt-timestep"class="">
+              <lable for="red-timestep">Time step</lable>
+              <input type="number" id="red-timestep" class="form-control"/>
+            </div>
+            <!-- Color step -->
+            <div id="red-opt-colorstep"class="">
+              <lable for="red-colorstep">Color step</lable>
+              <input type="number" id="red-colorstep" class="form-control"/>
+            </div>
+            <!-- Backward state -->
+            <div id="red-opt-backward" class="">
+              <input id="backward-state" class="backward" type="checkbox" checked />
+              <label for"backward-state">Backward</label>
+            </div>
+          </div>
+          <!-- Green options -->
+          <div id="green-options" class="col-md-4 color-section">
+            <!-- Duration --> 
+            <div id="opt-duration" class="">
+              <lable for="duration-val">Duration</lable>
+              <div class="input-group">
+                <input type="number" id="duration-val" class="form-control"/>
+                <span class="input-group-addon" id="basic-addon2">ms</span>
+              </div>
+            </div>
+            <!-- Color range -->
+            <div id="red-opt-range" class="">
+              <label for="red-range-min">Range of color</label>
+              <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">min:</span>
+              <input type="number" class="form-control" id="red-range-min" aria-describedby="basic-addon3">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Max:</span>
+                <input type="number" class="form-control" id="red-range-max" aria-describedby="basic-addon3">
+              </div>
+            </div>
+            <!-- Time step -->
+            <div id="red-opt-timestep"class="">
+              <lable for="red-timestep">Time step</lable>
+              <input type="number" id="red-timestep" class="form-control"/>
+            </div>
+            <!-- Color step -->
+            <div id="red-opt-colorstep"class="">
+              <lable for="red-colorstep">Color step</lable>
+              <input type="number" id="red-colorstep" class="form-control"/>
+            </div>
+            <!-- Backward state -->
+            <div id="red-opt-backward" class=>
+              <input id="backward-state" class="backward" type="checkbox" checked />
+              <label for"backward-state">Backward</label>
+            </div>
+          </div>
+          <!-- Blue options -->
+          <div id="blue-options" class="col-md-4 color-section">
+            <!-- Duration --> 
+            <div id="opt-duration" class="row">
+              <lable for="duration-val">Duration</lable>
+              <div class="input-group">
+                <input type="number" id="duration-val" class="form-control"/>
+                <span class="input-group-addon" id="basic-addon2">ms</span>
+              </div>
+            </div>
+            <!-- Color range -->
+            <div id="red-opt-range" class="row">
+              <label for="red-range-min">Range of color</label>
+              <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">min:</span>
+              <input type="number" class="form-control" id="red-range-min" aria-describedby="basic-addon3">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Max:</span>
+                <input type="number" class="form-control" id="red-range-max" aria-describedby="basic-addon3">
+              </div>
+            </div>
+            <!-- Time step -->
+            <div id="red-opt-timestep"class="row">
+              <lable for="red-timestep">Time step</lable>
+              <input type="number" id="red-timestep" class="form-control"/>
+            </div>
+            <!-- Color step -->
+            <div id="red-opt-colorstep"class="row">
+              <lable for="red-colorstep">Color step</lable>
+              <input type="number" id="red-colorstep" class="form-control"/>
+            </div>
+            <!-- Backward state -->
+            <div id="red-opt-backward" class="row">
+              <input id="backward-state" class="backward" type="checkbox" checked />
+              <label for"backward-state">Backward</label>
+            </div>
+          </div>
+        </div>
+        <!-- End, Colors specific options -->
+      </div>
+    </div>
+  </div>
+>>>>>>> constructor-way
 </body>
 </html>
