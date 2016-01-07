@@ -1,1 +1,7 @@
-//style for Coda demo page
+/* style for Coda demo page */
+body div {
+	border: 1px solid #a23a45;
+	padding: 1px;
+}
+.color-section{
+}
