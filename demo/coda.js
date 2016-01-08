@@ -5,24 +5,21 @@
 */ 
 +function(){
 
-	var Coda = function(d) {
+	var Coda = function(sets) {
 		// options for coda object
 		//the element for dancing
 		this.element = 'body';
 
 		//optionation in ms for dancing
-		this.optionation = d.optionation || 1000;
+		this.duration = sets.duration;
 
 		//The range of for dancing;
-		this.colorRange = {
-			min: 0,
-			Max: 255
-		}
+		this.colorRange = sets.colorRange;
 		//The step that a color(R,G,B) chages in that range
-		this.colorStep = 3;
+		this.colorStep = sets.colorStep;
 		 
 		//Time step that a color(R,G,B) changes in that optionation
-		this.timeStep = 10;
+		this.timeStep = sets.timeStep;
 
 		// Defines that the changing action will step down after getting to its Maximum value
 		this.backward = true;
@@ -33,21 +30,25 @@
 
 	/* Coda methods */
 	//
-	Coda.prototype.dance = function(opt) {
+	Coda.prototype.dance = function() {
+
 		var that = this;
-		var min = that.colorRange.min;
-		var max = that.colorRange.Max;
+		var min = this.colorRange.min;
+		var max = this.colorRange.Max;
+
 		var dancing = setInterval(function(){
+
 			//ckeck that the value is in the range
 			if ( min <= that.value && that.value <= max && (that.value + that.colorStep) <= max ) {
 
 				that.value += that.colorStep;
 				
 			}
-		}, that.timeStep);
+
+		}, this.timeStep);
 		setTimeout(function(){
 			clearInterval(dancing);
-		}, this.optionation);
+		}, this.duration);
 	}
 	Coda.prototype.setValue = function(value) {
 		this.value = value;
@@ -106,34 +107,37 @@
 				//options that we take from inserted option
 				var redOpt = {}, greenOPt = {}, blueOpt = {};
 
-				if(check(option, 'redDur')){
-					redOpt.duration = option.redDur;
-				}
-				if(check(option, 'red')) {
-					if (option.red == true) {
-						var red = new Coda(option);
-						red.dance();
-					}
-				} else {
-					var red = new Coda(option);
-					red.dance();
-				}
-				if(check(option, 'green')) {
-					if (option.green == true)
-						var green = new Coda(option);
-				} else {
-					var green = new Coda(option);
-					green.dance();
-				}
-				if(check(option, 'blue')) {
-					if (option.blue == true)
-						var blue = new Coda(option);
-				} else {
-					var blue = new Coda(option);
-					blue.dance();
-				}
+				//suffixes that come after a color option like r_suffix
+				var suffixes = ['duration', 'colorStep', 'colorRange', 'timeStep'];
+				
+				for(var suffix in suffixes) {
 
-				Ocoda = new Coda(option);
+					suffix = suffixes[suffix];
+
+					//Mining red color options
+					if (typeof option['r_' + suffix])
+						redOpt[suffix] = option['r_' + suffix];
+
+					//Mining green color options
+					if (typeof option['g_' + suffix]) 
+						greenOPt[suffix] = option['g_' + suffix];
+
+					//Mining blue color options
+					if (typeof option['b_' + suffix])
+						blueOpt[suffix] = option['b_' + suffix];
+				
+				}
+				var all = {
+
+					duration: 10000,
+					colorStep: 1,
+					colorRange : { min : 0, Max: 255},
+					timeStep: 10
+				}
+				Ocoda = new Coda(all);
+				var red = new Coda(redOpt);
+				var green = new Coda(greenOPt);
+				var blue = new Coda(blueOpt);
 				red.dance();
 				blue.dance();
 				green.dance();
@@ -148,7 +152,7 @@
 
 				setTimeout(function(){
 					clearInterval(dancing);
-				},Ocoda.optionation);
+				},Ocoda.duration);
 
 					
 			},
