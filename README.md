@@ -3,6 +3,11 @@ Coda(color dancer) is a pure javascript object for changing background color or 
 `Coda : The last piece of a song.`
 
 ## Options
-
+| Name | Type | Default | Description | 
 ## Methods
-
+```javascript
+dance([options])
+```
+```javascript
+stop([red[,green][,blue]])
+```
