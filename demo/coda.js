@@ -5,7 +5,7 @@
 */ 
 +function(){
 
-	Coda = function() {
+	var Coda = function() {
 		// options for coda object
 		//the element for dancing
 		this.element = 'body';
@@ -35,16 +35,50 @@
 	Coda.prototype.dance = function() {
 		/* 1. 
 		 */
-		console.log('this is a dance functiom')
 	}
 
-	//This mwthod stop dancing of selected element
+	//This method stop dancing of selected element
 	Coda.prototype.stop = function() {
 		
 	}
+
+	/* Coda color classes that inherit from Coda class
+	 */
+	var inheritsFrom = function(child, parent) {
+		child.prototype = new parent();
+	}
+	//This class responsible for red color dancing
+	function Red() {
+		this.name = "red";
+	}
+	inheritsFrom(Red, Coda);
+	
+	//This class responsible for green color dancing
+	function Green() {
+
+	}
+	inheritsFrom(Green, Coda);
+	
+	//This class responsible for blue color dancing
+	function Blue() {
+
+	}
+	inheritsFrom(Blue, Coda);
+
 	//for creating and getting coda object from outeside scope
 	window.coda = function (element){
-		return new Coda(element);
+		
+		return {
+
+			dance: function(options) {
+				if (options.red === undefined )
+					console.log('unnnn');
+			},
+
+			stop: function() {
+
+			}
+		}
 	}
 	
 }();
