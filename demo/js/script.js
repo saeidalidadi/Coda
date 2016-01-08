@@ -2,7 +2,10 @@
 var options = {
 
 	duration: 500,
-	red : {},
+	red : {
+		duration: 1000,
+		colorStep: 20
+	},
 	green: {},
 	blue: {}
 };
