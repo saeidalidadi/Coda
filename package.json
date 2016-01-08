@@ -4,9 +4,9 @@
   "description": "Coda is a javascript component for color dancing",
   "main": "coda.js",
   "dependencies": {
-    "gulp": "^3.9.0"
   },
   "devDependencies": {
+	"gulp": "^3.9.0"
     "gulp-connect": "^2.3.1"
   },
   "scripts": {
