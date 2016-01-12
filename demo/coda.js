@@ -9,7 +9,7 @@
 		// options for coda object
 		elements : [],
 		//optionation in ms for dancing
-		duration : 100000,
+		duration : 300000,
 
 		//The range of for dancing;
 		colorRange : {min:0, Max:255},
@@ -38,7 +38,7 @@
 		this.value = this.colorRange.min;
 
 		var dancing = setInterval(function(){
-
+			//console.log(this.name);
 			//ckeck that the value is in the range if true then changes the value
 			if ( min <= that.value && that.value <= max )  {
 
@@ -74,9 +74,21 @@
 	Coda.getValue = function () {
 		return this.value;
 	}
-	Coda.setOptions = function(opt) {
-		if (typeof opt === 'Object' )
+	//seting the objects option
+	Coda.setOptions = function(color,opt) {
+		if (typeof opt === 'object' ) {
+			this.duration   = typeof opt[color].duration !== 'undefined' ? opt[color].duration : 100;
+			this.timeStep   = opt[color].timeStep;
+			this.colorStep  = typeof opt[color].colorStep !== 'undefined' ? opt[color].colorStep : 1;
+			this.colorRange = typeof opt[color].colorRange !== 'undefined' ? opt[color].colorRange : {min:0, Max:255};
+			this.backward   = opt[color].backward;
+			console.log(this.colorRange.min);
+		}
 			console.log('ddd');
+	}
+	//setting default options
+	Coda.setDefaults = function() {
+		
 	}
 	//This method stop dancing of selected element
 	Coda.stop = function() {
@@ -100,19 +112,19 @@
 				if(option.hasOwnProperty('red')){
 
 					var red = Object.create(Coda);
-					red.setOptions(option);
+					red.setOptions('red', option);
 					red.dance();
 				}
 				if(option.hasOwnProperty('green')){
 
 					var green = Object.create(Coda);
-					green.setOptions(option);
+					green.setOptions('green', option);
 					green.dance();
 				}
 				if(option.hasOwnProperty('blue')){
 
 					var blue = Object.create(Coda);
-					blue.setOptions(option);
+					blue.setOptions('blue', option);
 					blue.dance();
 				}
 				
@@ -124,11 +136,11 @@
 												+ red.getValue() + ',' 
 												+ green.getValue() + ',' 
 												+ blue.getValue() + ')';
-				},Coda.timeStep);
+				}, Coda.timeStep);
 
 				setTimeout(function(){
 					clearInterval(dancing);
-				},Coda.duration);
+				}, Coda.duration);
 
 					
 			},
