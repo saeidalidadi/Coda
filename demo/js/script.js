@@ -3,25 +3,25 @@ var options = {
 
 	duration: 500,
 	red : {
-		duration: 10000,
+		duration: 1000,
 		colorStep: 1,
 		timeStep: 10,
 		backward:  true,
 		colorRange: {min: 0, Max: 30}
 	},
 	green: {
-		duration: 30000, 
+		duration: 3000, 
 		colorStep: 1,
 		timeStep: 10,
 		backward: true,
 		colorRange: {min: 30, Max: 150}
 	},
 	blue: {
-		duration:100000, 
+		duration:1000, 
 		colorStep: 1, 
-		timeStep: 10, 
+		timeStep: 100, 
 		backward: true,
-		colorRange: {min: 30, Max: 50}
+		colorRange: {min: 30, Max: 150}
 	}
 };
 
