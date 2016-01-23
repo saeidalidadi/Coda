@@ -2,18 +2,27 @@
 var options = {
 
 	duration: 500,
-	r_duration: 10000,
-	g_duration: 30,
-	b_duration: 100,
-	r_colorStep: 30,
-	g_colorStep: 2,
-	b_colorStep: 1,
-	r_timeStep: 70,
-	b_timeStep: 10,
-	g_timeStep: 40,
-	r_colorRange : {min: 0, Max: 255},
-	g_colorRange : {min: 0, Max: 250},
-	b_colorRange : {min: 0, Max: 240}
+	red : {
+		duration: 1000,
+		colorStep: 1,
+		timeStep: 10,
+		backward:  true,
+		colorRange: {min: 0, Max: 30}
+	},
+	green: {
+		duration: 3000, 
+		colorStep: 1,
+		timeStep: 10,
+		backward: true,
+		colorRange: {min: 30, Max: 150}
+	},
+	blue: {
+		duration:1000, 
+		colorStep: 1, 
+		timeStep: 100, 
+		backward: true,
+		colorRange: {min: 30, Max: 150}
+	}
 };
 
 //selecting body element and calling dancing method for it

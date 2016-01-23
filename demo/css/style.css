@@ -1,11 +1,21 @@
-<<<<<<< HEAD
-//style for Coda demo page
-=======
 /* style for Coda demo page */
 body div {
-	border: 1px solid #a23a45;
+	//border: 1px solid #a23a45;
 	padding: 1px;
 }
 .color-section{
 }
->>>>>>> constructor-way
+
+.common, .rgb {
+	background-color: #C3D2D2;
+}
+#red-options {
+	background-color: #F58171;
+}
+#green-options {
+	background-color: #8CC14F;
+}
+
+#blue-options {
+	background-color: #50A4EC;
+}
