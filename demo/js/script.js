@@ -9,4 +9,5 @@ var options = {
 };
 
 //selecting body element and calling dancing method for it
-coda('body').dance(options);
+var coda = new Coda('body', options);
+coda.dance();
