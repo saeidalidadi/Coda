@@ -4,12 +4,27 @@
  * Date  : 26-Dec-2015
 */ 
 +function(){
+	//Coda object for setting actions
+	var Coda = function(element, options) {
 
+		//The dancer method 
+		this.dance = function() {
+
+		}
+
+		this.stopRed = function() {
+
+		}
+
+		//
+	}
+
+	//this is object for three colors - RGB -
 	var Color = function(option) {
 
 		// options for Color object
 
-		//optionation in ms for dancing
+		//duration in ms for dancing
 		this.duration = option.duration || 3000;
 
 		//The range of for dancing;
@@ -18,7 +33,7 @@
 		//The step that a color(R,G,B) chages in that range
 		this.colorStep = option.colorStep || 1;
 		 
-		//Time step that a color(R,G,B) changes in that optionation
+		//Time step that a color(R,G,B) changes in that duration
 		this.timeStep = option.timeStep || 30;
 
 		// Defines that the changing action will step down after getting to its Maximum value
@@ -29,8 +44,8 @@
 	}
 
 	/* Color methods */
-	//
-	Color.prototype.dance = function() {
+	//changes the color value by setTimeout and setInterval functions 
+	Color.prototype.changeValue = function() {
 
 		var that = this;
 		var min = this.colorRange.min;
@@ -49,9 +64,6 @@
 		setTimeout(function(){
 			clearInterval(dancing);
 		}, this.duration);
-	}
-	Color.prototype.setValue = function(value) {
-		this.value = value;
 	}
 
 	Color.prototype.getValue = function () {
@@ -94,7 +106,7 @@
 	inheritsFrom(Blue, Color);
 	*/
 	//for creating and getting Color object from outeside scope
-	window.Color = function (element){
+	/*Color = function (element){
 		
 		return {
 
@@ -162,5 +174,5 @@
 			}
 		}
 	}
-	
+*/	
 }();
