@@ -1,25 +1,25 @@
-/* Coda is fun and usefull for DOM elements dancing by their color related style attributes 
+/* Color is fun and usefull for DOM elements dancing by their color related style attributes 
  * Author: Saeid Alidadi
  * Email : alidadisaeid@gmail.com
  * Date  : 26-Dec-2015
 */ 
 +function(){
 
-	var Coda = function(sets) {
-		// options for coda object
-		//the element for dancing
-		this.element = 'body';
+	var Color = function(option) {
+
+		// options for Color object
 
 		//optionation in ms for dancing
-		this.duration = sets.duration;
+		this.duration = option.duration || 3000;
 
 		//The range of for dancing;
-		this.colorRange = sets.colorRange;
+		this.colorRange = option.colorRange || [0,255];
+
 		//The step that a color(R,G,B) chages in that range
-		this.colorStep = sets.colorStep;
+		this.colorStep = option.colorStep || 1;
 		 
 		//Time step that a color(R,G,B) changes in that optionation
-		this.timeStep = sets.timeStep;
+		this.timeStep = option.timeStep || 30;
 
 		// Defines that the changing action will step down after getting to its Maximum value
 		this.backward = true;
@@ -28,9 +28,9 @@
 
 	}
 
-	/* Coda methods */
+	/* Color methods */
 	//
-	Coda.prototype.dance = function() {
+	Color.prototype.dance = function() {
 
 		var that = this;
 		var min = this.colorRange.min;
@@ -50,27 +50,27 @@
 			clearInterval(dancing);
 		}, this.duration);
 	}
-	Coda.prototype.setValue = function(value) {
+	Color.prototype.setValue = function(value) {
 		this.value = value;
 	}
 
-	Coda.prototype.getValue = function () {
+	Color.prototype.getValue = function () {
 		return this.value;
 	}
-	Coda.prototype.setColorRange = function() {
+	Color.prototype.setColorRange = function() {
 
 	}
-	Coda.prototype.getColorRange = function() {
+	Color.prototype.getColorRange = function() {
 		/* 
 		 */
 		
 	}
 	//This method stop dancing of selected element
-	Coda.prototype.stop = function() {
+	Color.prototype.stop = function() {
 		
 	}
 
-	/* Coda color classes that inherit from Coda class
+	/* Color color classes that inherit from Color class
 	 *
 	var inheritsFrom = function(child, parent) {
 		child.prototype = new parent();
@@ -79,22 +79,22 @@
 	function Red(options) {
 		
 	}
-	inheritsFrom(Red, Coda);
+	inheritsFrom(Red, Color);
 	
 	//This class responsible for green color dancing
 	function Green(options) {
 		
 	}
-	inheritsFrom(Green, Coda);
+	inheritsFrom(Green, Color);
 	
 	//This class responsible for blue color dancing
 	function Blue(options) {
 
 	}
-	inheritsFrom(Blue, Coda);
+	inheritsFrom(Blue, Color);
 	*/
-	//for creating and getting coda object from outeside scope
-	window.coda = function (element){
+	//for creating and getting Color object from outeside scope
+	window.Color = function (element){
 		
 		return {
 
@@ -134,10 +134,10 @@
 					colorRange : { min : 0, Max: 255},
 					timeStep: 10
 				}
-				Ocoda = new Coda(all);
-				var red = new Coda(redOpt);
-				var green = new Coda(greenOPt);
-				var blue = new Coda(blueOpt);
+				OColor = new Color(all);
+				var red = new Color(redOpt);
+				var green = new Color(greenOPt);
+				var blue = new Color(blueOpt);
 				red.dance();
 				blue.dance();
 				green.dance();
@@ -148,11 +148,11 @@
 												+ red.getValue() + ',' 
 												+ green.getValue() + ',' 
 												+ blue.getValue() + ')';
-				},Ocoda.timeStep);
+				},OColor.timeStep);
 
 				setTimeout(function(){
 					clearInterval(dancing);
-				},Ocoda.duration);
+				},OColor.duration);
 
 					
 			},
