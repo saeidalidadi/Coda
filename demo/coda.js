@@ -9,7 +9,6 @@
 
 		this.element = element || 'body';
 		
-		Color(options.all);
 		
 		/*object.defineProperty(this, 'default' ,{
 			get: function() {
@@ -17,26 +16,26 @@
 			}
 		})*/
 
-		//Three color objects from Color class
-		var Red = new Color(options.red);
-		var Green = new Color(options.green);
-		var Blue = new Color(options.blue);
-		
-		//The dancer method 
-		this.dance = function() {
-			//Getting maximum duration
-			//Getting minimum timeStep
-			//Set an interval  
-				//Getting values from Colors objects 
-			 	//Setting the element background color
-			//A time out function with maximum duration
-		}
+	}
+	//The dancer method 
+	Coda.prototype.dance = function() {
+		//Getting maximum duration
+		//Getting minimum timeStep
+		//Set an interval  
+			//Getting values from Colors objects 
+			 //Setting the element background color
+		//A time out function with maximum duration
+	}
 
-		this.stopRed = function() {
-
-		}
+	// Stop dancing immediately
+	Coda.prototype.stop = function() {
 
 	}
+
+	//Three color objects from Color class
+	var Red = new Color(options.red);
+	var Green = new Color(options.green);
+	var Blue = new Color(options.blue);
 
 	//this is object for three colors - RGB -
 	var Color = function(option) {
@@ -101,7 +100,7 @@
 			clearInterval(dancing);
 		}, this.duration);
 	}
-
+	//Get the value of the color
 	Color.prototype.getValue = function () {
 		return this.value;
 	}
@@ -111,5 +110,7 @@
 		
 	}
 	
-	window.Coda = Coda;
+	window.coda = function(){
+		return new Coda(element, options);
+	};
 }();
