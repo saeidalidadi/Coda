@@ -4,7 +4,7 @@ Coda(color dancer) is a pure javascript object for changing background color or 
 
 ## How to use?
 ```javascript
-coda(DOMelement).dance(options);
+coda(DOMelement, options).dance();
 ```
 
 ## Example
@@ -15,23 +15,25 @@ coda(DOMelement).dance(options);
 ```
 ```javascript 
 var options = {
-  duration : 1000,
-  green : false,
-  redDur: 500
+  all : { duration: 1000, timeStep: 20 },
+  red : false,
+  green:  { timeStep: 123},
+  blue:{ duration: 500 }
 }
 
-coda('.dancer').dance(options);
+coda('#dancer', options).dance();
 ```
 ## Options
-`red`: (default `true`) detemines to use red color in dancing.
-
-`green`: (default `true`) detemines to use blue green in dancing.
-
-`blue`: (default `true`) determines to use blue color in dancing.
+`red`: (default `true`) defines to use red color in dancing.
+`redOpt: (type: object `{}` ) defines red color options.
+`green`: (default `true`) defines to use blue green in dancing.
+`greenOpt: (type: object `{}` ) defines red color options.
+`blue`: (default `true`) defines to use blue color in dancing.
+`blueOpt: (type: object `{}` ) defines red color options.
 
 ## Methods
 ```javascript
-dance([options])
+dance()
 ```
 dancing with the defined options 
 ```javascript
