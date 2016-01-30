@@ -24,11 +24,11 @@ var options = {
 coda('#dancer', options).dance();
 ```
 ## Options
-`red`: (default `true`) defines to use red color in dancing.
+`hasRed`: (default `true`) defines to use red color in dancing.
 `redOpt: (type: object `{}` ) defines red color options.
-`green`: (default `true`) defines to use blue green in dancing.
+`hasGreen`: (default `true`) defines to use blue green in dancing.
 `greenOpt: (type: object `{}` ) defines red color options.
-`blue`: (default `true`) defines to use blue color in dancing.
+`hasBlue`: (default `true`) defines to use blue color in dancing.
 `blueOpt: (type: object `{}` ) defines red color options.
 
 ## Methods
