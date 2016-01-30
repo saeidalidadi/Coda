@@ -67,12 +67,37 @@
 
 			}
 		}
+		//dancing the colors 
+		var red =  false, green = false, blue = false;
+		if(this.hasRed) {
+			this.red.changeValue();
+			red = true;
+		}
+		if(this.hasGreen) {
+			this.green.changeValue();
+			green = true;
+		}
+		if(this.hasBlue) {
+			this.blue.changeValue();
+			blue = true;
+		}
 		//Getting minimum timeStep
 		var minTimeStep = 10;
 		//Set an interval
 		var that = this; 
+		var redValue = 0, greenValue = 0, blueValue = 0;
 		var interval = setInterval(function() {
 			//Getting values from Colors objects
+
+			if(red){
+				var redValue = that.red.getValue()
+			}
+			if(green) {
+				var greenValue = that.green.getValue();
+			}
+			if(blue){
+				var blueValue = that.getValue();
+			}
 			//Setting the element background color
 		}, minTimeStep); 
 			 
@@ -80,20 +105,17 @@
 		//A time out function with maximum duration
 	}
 
-	Coda.prototype.setColor = function(color) {
-		switch(color.name) {
-			case 'red':
-				this.red = color;
-				break;
-			case 'green':
-				this.green = color;
-				break;
-			case 'blue':
-				this.blue = color;
-				break;
+	Coda.prototype.setColors = function() {
+		if(this.hasRed){
+			this.red = new ColorDancer('red', this.redOpt);
+		}
+		if(this.hasGreen){
+			this.green = new ColorDancer('green', this.greenOpt);
+		}
+		if(this.hasBlue){
+			this.hasBlue = new ColorDancer('blue', this.blueOpt);
 		}
 	}
-
 	// Stop dancing immediately
 	Coda.prototype.stop = function() {
 
@@ -178,6 +200,10 @@
 	//Three color set (r,g,b) objects that every color 
 
 	window.coda = function(element, options) {
-		return new Coda(element, options);
+		var co = new Coda(element, options);
+		co.arrangeOptions();
+		co.setColors();
+		return co;
+
 	};
 }();
