@@ -85,20 +85,26 @@
 		var minTimeStep = 10;
 		//Set an interval
 		var that = this; 
+		var redDancer = this.red;
+		var greenDancer = this.green;
+		var blueDancer = this.blue;
 		var redValue = 0, greenValue = 0, blueValue = 0;
 		var interval = setInterval(function() {
 			//Getting values from Colors objects
 
 			if(red){
-				var redValue = that.red.getValue()
+				redValue = redDancer.getValue()
 			}
 			if(green) {
-				var greenValue = that.green.getValue();
+				greenValue = greenDancer.getValue();
 			}
 			if(blue){
-				var blueValue = that.getValue();
+				blueValue = blueDancer.getValue();
 			}
 			//Setting the element background color
+			document[that.element]
+				.style
+				.backgroundColor = 'rgb(' + redValue + ',' + greenValue + ',' + blueValue + ')';
 		}, minTimeStep); 
 			 
 			 
@@ -113,7 +119,7 @@
 			this.green = new ColorDancer('green', this.greenOpt);
 		}
 		if(this.hasBlue){
-			this.hasBlue = new ColorDancer('blue', this.blueOpt);
+			this.blue = new ColorDancer('blue', this.blueOpt);
 		}
 	}
 	// Stop dancing immediately

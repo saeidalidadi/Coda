@@ -5,7 +5,7 @@ var options = {
 	redOpt: { duration: 10000, colorStep: 30,timeStep: 70, colorRange : [0, 255], backward: false },
 	greenOpt: { duration: 10000, colorStep: 30,timeStep: 70, colorRange : [0, 255], backward: false },
 	blueOpt : { duration: 10000, colorStep: 30,timeStep: 70, colorRange : [0, 255], backward: false },
-	isRed: false
+	hasRed: false
 };
 
 //selecting body element and calling dancing method for it
