@@ -2,24 +2,35 @@
  * Author: Saeid Alidadi
  * Email : alidadisaeid@gmail.com
  * Date  : 26-Dec-2015
-*/ 
-+function(){
+*/
+
++function() {
 	//Coda object for setting actions
 	var Coda = function(element, options) {
 
-		this.element = element || 'body';
-		this.options = options;
+		this.element = typeof element !== undefined ? element : 'body';
+		this.options = typeof options !== undefined ? options : this.default;
+		this.redOpt = typeof options.redOpt !== undefined ? options.redOpt : this.default;
+		this.greenOpt = typeof options.greenOpt !== undefined ? options.greenOpt : this.default;
+		this.blueOpt = typeof options.blueOpt !== undefined ? options.blueOpt : this.default;
 		this.hasRed = true;
 		this.hasGreen = true;
 		this.hasBlue = true;
 
-		/*object.defineProperty(this, 'default' ,{
+		object.defineProperty(this, 'default' ,{
 			get: function() {
-				return this.Color
+				return {
+					duration: 3000,
+					colorStep: 1,
+					timeStep: 10,
+					colorRange : [0, 255],
+					backward: true
+				}
 			}
-		})*/
+		});
 
 	}
+
 	//Arranging the given options from this module user
 	Coda.prototype.arrangeOptions = function() {
 		for(var key in this.options) {
@@ -49,6 +60,7 @@
 			}
 		}
 	}
+
 	//The dancer method 
 	Coda.prototype.dance = function() {
 		//Getting maximum duration
