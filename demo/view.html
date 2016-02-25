@@ -25,25 +25,25 @@
             </div>
             <!-- Color range -->
             <div id="common-opt-range" class="col-lg-6 col-md-6">
-              <label for="red-range-min">Range of color</label>
+              <label for="range-min">Range of color</label>
               <div class="input-group">
-              <span class="input-group-addon" id="basic-addon3">min:</span>
-              <input type="number" class="form-control" id="red-range-min" aria-describedby="basic-addon3">
+                <span class="input-group-addon" id="basic-addon3">min:</span>
+                <input type="number" class="form-control" id="range-min" aria-describedby="basic-addon3">
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Max:</span>
-                <input type="number" class="form-control" id="red-range-max" aria-describedby="basic-addon3">
+                <input type="number" class="form-control" id="range-max" aria-describedby="basic-addon3">
               </div>
             </div>
             <!-- Time step -->
             <div id="common-opt-timestep"class="col-lg-6 col-md-6">
-              <lable for="red-timestep">Time step</lable>
-              <input type="number" id="red-timestep" class="form-control"/>
+              <lable for="timestep">Time step</lable>
+              <input type="number" id="timestep" class="form-control"/>
             </div>
             <!-- Color step -->
             <div id="common-opt-colorstep"class="col-lg-6 col-md-6">
-              <lable for="red-colorstep">Color step</lable>
-              <input type="number" id="red-colorstep" class="form-control"/>
+              <lable for="colorstep">Color step</lable>
+              <input type="number" id="colorstep" class="form-control"/>
             </div>
             <!-- Backward state -->
             <div id="common-opt-backward" class="col-xs-12">
@@ -51,7 +51,7 @@
               <label for"backward-state">Backward</label>
             </div>
             <div id="common-button">
-              <button type="button" class="btn btn-default">Dance</button>
+              <button type="button" id="btn-common" class="btn btn-default">Dance</button>
             </div>
           </div>   
         </div>
@@ -63,9 +63,9 @@
           <div id="red-options" class="col-md-4 color-section">
             <!-- Duration --> 
             <div id="opt-duration" class="">
-              <lable for="duration-val">Duration</lable>
+              <lable for="red-duration-val">Duration</lable>
               <div class="input-group">
-                <input type="number" id="duration-val" class="form-control"/>
+                <input type="number" id="red-duration-val" class="form-control"/>
                 <span class="input-group-addon" id="basic-addon2">ms</span>
               </div>
             </div>
@@ -93,93 +93,93 @@
             </div>
             <!-- Backward state -->
             <div id="red-opt-backward" class="">
-              <input id="backward-state" class="backward" type="checkbox" checked />
-              <label for"backward-state">Backward</label>
+              <input id="red-backward-state" class="backward" type="checkbox" checked />
+              <label for"red-backward-state">Backward</label>
             </div>
             <div id="red-button">
-              <button type="button" class="btn btn-default">Dance</button>
+              <button type="button" id="btn-red" class="btn btn-default">Dance</button>
             </div>
           </div>
           <!-- Green options -->
           <div id="green-options" class="col-md-4 color-section">
             <!-- Duration --> 
             <div id="green-opt-duration" class="">
-              <lable for="duration-val">Duration</lable>
+              <lable for="green-duration-val">Duration</lable>
               <div class="input-group">
-                <input type="number" id="duration-val" class="form-control"/>
+                <input type="number" id="green-duration-val" class="form-control"/>
                 <span class="input-group-addon" id="basic-addon2">ms</span>
               </div>
             </div>
             <!-- Color range -->
             <div id="green-opt-range" class="">
-              <label for="red-range-min">Range of color</label>
+              <label for="green-range-min">Range of color</label>
               <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">min:</span>
-              <input type="number" class="form-control" id="red-range-min" aria-describedby="basic-addon3">
+              <input type="number" class="form-control" id="green-range-min" aria-describedby="basic-addon3">
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Max:</span>
-                <input type="number" class="form-control" id="red-range-max" aria-describedby="basic-addon3">
+                <input type="number" class="form-control" id="green-range-max" aria-describedby="basic-addon3">
               </div>
             </div>
             <!-- Time step -->
             <div id="green-opt-timestep"class="">
-              <lable for="red-timestep">Time step</lable>
-              <input type="number" id="red-timestep" class="form-control"/>
+              <lable for="green-timestep">Time step</lable>
+              <input type="number" id="green-timestep" class="form-control"/>
             </div>
             <!-- Color step -->
             <div id="green-opt-colorstep"class="">
               <lable for="red-colorstep">Color step</lable>
-              <input type="number" id="red-colorstep" class="form-control"/>
+              <input type="number" id="green-colorstep" class="form-control"/>
             </div>
             <!-- Backward state -->
             <div id="green-opt-backward" class=>
-              <input id="backward-state" class="backward" type="checkbox" checked />
-              <label for"backward-state">Backward</label>
+              <input id="green-backward-state" class="backward" type="checkbox" checked />
+              <label for"green-backward-state">Backward</label>
             </div>
             <div id="green-button">
-              <button type="button" class="btn btn-default">Dance</button>
+              <button type="button" id="btn-green" class="btn btn-default">Dance</button>
             </div>
           </div>
           <!-- Blue options -->
           <div id="blue-options" class="col-md-4 color-section">
             <!-- Duration --> 
             <div id="blue-duration" class="">
-              <lable for="duration-val">Duration</lable>
+              <lable for="blue-duration-val">Duration</lable>
               <div class="input-group">
-                <input type="number" id="duration-val" class="form-control"/>
+                <input type="number" id="blue-duration-val" class="form-control"/>
                 <span class="input-group-addon" id="basic-addon2">ms</span>
               </div>
             </div>
             <!-- Color range -->
             <div id="blue-opt-range" class="">
-              <label for="red-range-min">Range of color</label>
+              <label for="blue-range-min">Range of color</label>
               <div class="input-group">
               <span class="input-group-addon" id="basic-addon3">min:</span>
-              <input type="number" class="form-control" id="red-range-min" aria-describedby="basic-addon3">
+              <input type="number" class="form-control" id="blue-range-min" aria-describedby="basic-addon3">
               </div>
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon3">Max:</span>
-                <input type="number" class="form-control" id="red-range-max" aria-describedby="basic-addon3">
+                <input type="number" class="form-control" id="blue-range-max" aria-describedby="basic-addon3">
               </div>
             </div>
             <!-- Time step -->
             <div id="blue-opt-timestep"class="">
-              <lable for="red-timestep">Time step</lable>
-              <input type="number" id="red-timestep" class="form-control"/>
+              <lable for="blue-timestep">Time step</lable>
+              <input type="number" id="blue-timestep" class="form-control"/>
             </div>
             <!-- Color step -->
             <div id="blue-opt-colorstep"class="">
-              <lable for="red-colorstep">Color step</lable>
-              <input type="number" id="red-colorstep" class="form-control"/>
+              <lable for="blue-colorstep">Color step</lable>
+              <input type="number" id="blue-colorstep" class="form-control"/>
             </div>
             <!-- Backward state -->
             <div id="blue-opt-backward" class="">
-              <input id="backward-state" class="backward" type="checkbox" checked />
-              <label for"backward-state">Backward</label>
+              <input id="blue-backward-state" class="backward" type="checkbox" checked />
+              <label for"blue-backward-state">Backward</label>
             </div>
             <div id="blue-button">
-              <button type="button" class="btn btn-default">Dance</button>
+              <button type="button" id="btn-blue" class="btn btn-default">Dance</button>
             </div>
           </div>
         </div>
