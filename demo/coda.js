@@ -5,63 +5,38 @@
 */
 
 +function() {
-	//Coda object for setting actions
+	//Coda object for setting main dancing actions
 	var Coda = function(element, options) {
 
-		this.element = typeof element !== undefined ? element : 'body';
-		this.options = typeof options !== undefined ? options : this.default;
-		this.redOpt = typeof options.redOpt !== undefined ? options.redOpt : this.default;
-		this.greenOpt = typeof options.greenOpt !== undefined ? options.greenOpt : this.default;
-		this.blueOpt = typeof options.blueOpt !== undefined ? options.blueOpt : this.default;
-		this.hasRed = true;
-		this.hasGreen = true;
-		this.hasBlue = true;
+		var def = {
+				duration: 8000,
+				colorStep: 2,
+				timeStep: 30,
+				colorRange : [0, 255],
+				backward: true
+		}
 
-		object.defineProperty(this, 'default' ,{
+		var isOption = options !== undefined;
+		this.element = typeof element !== undefined ? element : 'body';
+		this.all = isOption && options.hasOwnProperty("all") ? options.all : def;
+		this.red = isOption && options.hasOwnProperty("red") ? options.red : def;
+		this.green = isOption && options.hasOwnProperty("green") ? options.green : def;
+		this.blue = isOption && options.hasOwnProperty("blue") ? options.blue : def;
+		this.has_red = isOption && options.hasOwnProperty("has_red") ? options.has_red : true;
+		this.has_green = isOption && options.hasOwnProperty("has_green") ? options.has_green : true;
+		this.has_blue = isOption && options.hasOwnProperty("has_blue") ? options.has_blue : true;
+		this.red_val = 0;
+		this.green_val = 0;
+		this.blue_val = 0;
+
+		Object.defineProperty(this, 'default' ,{
 			get: function() {
-				return {
-					duration: 3000,
-					colorStep: 1,
-					timeStep: 10,
-					colorRange : [0, 255],
-					backward: true
-				}
+				return def;
 			}
 		});
-
 	}
 
-	//Arranging the given options from this module user
-	Coda.prototype.arrangeOptions = function() {
-		for(var key in this.options) {
-			var opt;
-			switch (key) {
-				case 'all' : 
-					opt = options.all;
-					break;
-				case 'redOpt':
-					this.redOpt = options.redOpt;
-					break;
-				case 'greenOpt':
-					this.greenOpt = options.greenOpt;
-					break;
-				case'blueOpt': 
-					this.blueOpt = options.blueOpt;
-					break;
-				case 'hasRed':
-					this.hasRed = options.hasRed;
-					break;
-				case 'hasGreen':
-					this.hasGreen = options.hasGreen;
-				case 'hasBlue':
-					tis.hasBlue = options.hasBlue;
-				default:
-					break;
-			}
-		}
-	}
-
-	//The dancer method 
+	//The dancer method that is the main dancer  
 	Coda.prototype.dance = function() {
 		//Getting maximum duration
 		if(this.hasOwnProperty('red') || this.hasOwnProperty('green') || this.hasOwnProperty('blue')) {
@@ -81,38 +56,32 @@
 		}
 		//dancing the colors 
 		var red =  false, green = false, blue = false;
-		if(this.hasRed) {
-			this.red.changeValue();
+		if(this.has_red) {
+			this.changeValue("red");
 			red = true;
 		}
-		if(this.hasGreen) {
-			this.green.changeValue();
+		if(this.has_green) {
+			this.changeValue("green");
 			green = true;
 		}
-		if(this.hasBlue) {
-			this.blue.changeValue();
+		if(this.has_blue) {
+			this.changeValue("blue");
 			blue = true;
 		}
 		//Getting minimum timeStep
-		var minTimeStep = 10;
+		var minTimeStep = this.default.timeStep;
 		//Set an interval
 		var that = this; 
-		var redDancer = this.red;
-		var greenDancer = this.green;
-		var blueDancer = this.blue;
 		var redValue = 0, greenValue = 0, blueValue = 0;
 		var interval = setInterval(function() {
-			//Getting values from Colors objects
-
-			if(red){
-				redValue = redDancer.getValue()
-			}
-			if(green) {
-				greenValue = greenDancer.getValue();
-			}
-			if(blue){
-				blueValue = blueDancer.getValue();
-			}
+			
+			//Getting values of colors
+			redValue = that.getValue("red");
+			
+			greenValue = that.getValue("green");
+			
+			blueValue = that.getValue("blue");
+			
 			//Setting the element background color
 			document[that.element]
 				.style
@@ -121,106 +90,64 @@
 			 
 			 
 		//A time out function with maximum duration
+		setTimeout(function(){
+			clearInterval(interval);
+		}, this.default.duration);
 	}
 
-	Coda.prototype.setColors = function() {
-		if(this.hasRed){
-			this.red = new ColorDancer('red', this.redOpt);
-		}
-		if(this.hasGreen){
-			this.green = new ColorDancer('green', this.greenOpt);
-		}
-		if(this.hasBlue){
-			this.blue = new ColorDancer('blue', this.blueOpt);
-		}
+	//Get the value of the color
+	Coda.prototype.getValue = function (color) {
+		return this[color + "_val"];
 	}
+
 	// Stop dancing immediately
 	Coda.prototype.stop = function() {
 
 	}
 
 
-	//this is object for three colors - RGB -
-	var ColorDancer = function(name, opt) {
-
-		// options for Color object
-
-		//duration in ms for dancing
-		this.duration = opt.duration || 3000;
-
-		//The range of for dancing;
-		this.colorRange = opt.colorRange || [0,255];
-
-		//The step that a color(R,G,B) chages in that range
-		this.colorStep = opt.colorStep || 1;
-		 
-		//Time step that a color(R,G,B) changes in that duration
-		this.timeStep = opt.timeStep || 30;
-
-		// Defines that the changing action will step down after getting to its Maximum value
-		this.backward = opt.backward || true;
-
-		this.value = 0;
-
-		this.name = name;
-
-	}
 
 	/* Color methods */
 	//changes the color value by setTimeout and setInterval functions 
-	ColorDancer.prototype.changeValue = function() {
+	Coda.prototype.changeValue = function(color) {
 
-		var that = this;
-		var min = this.colorRange[0];
-		var max = this.colorRange[1];
+		var min = this[color].colorRange[0];
+		var max = this[color].colorRange[1];
 		var down = false;
-		this.value = this.colorRange[0];
+		this[color + "_val"] = this[color].colorRange[0];
+		var that = this;
+		var colorVal = this[color + "_val"];
 
 		var dancing = setInterval(function(){
-			//console.log(this.name);
 			//ckeck that the value is in the range if true then changes the value
-			if ( min <= that.value && that.value <= max )  {
+			if ( min <= colorVal && colorVal <= max )  {
 
-				if ( (that.value + that.colorStep) >= max && that.backward ) {
+				if ( (that[color + "_val"] + that[color].colorStep) >= max && that[color].backward ) {
 					down = true;
 				};
 
-				if ((that.value - that.colorStep) <= min && that.backward ) {
+				if ((that[color + "_val"] - that[color].colorStep) <= min && that[color].backward ) {
 					down = false;
 				};
 
 				if( down ) {
-					that.value -= that.colorStep;
+					that[color + "_val"] -= that[color].colorStep;
 				} else {
-					that.value += that.colorStep;
-				}
-				
-				
+					that[color + "_val"] += that[color].colorStep;
+				}	
 			} 
 
-		}, this.timeStep);
+		}, this[color].timeStep);
 
 		//clears the steInterval after exeeding to end of duration time
 		setTimeout(function(){
 			clearInterval(dancing);
-		}, this.duration);
+		}, this[color].duration);
 	}
-	//Get the value of the color
-	ColorDancer.prototype.getValue = function () {
-		return this.value;
-	}
-	
-	//This method stop dancing of selected element
-	ColorDancer.prototype.stop = function() {
-		
-	}
-	
-	//Three color set (r,g,b) objects that every color 
-
+	 
+	//Access to this dancing component from glbal scope
 	window.coda = function(element, options) {
 		var co = new Coda(element, options);
-		co.arrangeOptions();
-		co.setColors();
 		return co;
 
 	};
